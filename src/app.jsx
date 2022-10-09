@@ -19,7 +19,7 @@ const App = () => {
         return item
       }),
     )
-  })
+  }, [])
 
   const handleDecrement = useCallback((habit) => {
     setHabits((habits) =>
@@ -31,26 +31,26 @@ const App = () => {
         return item
       }),
     )
-  })
+  }, [])
 
   const handleDelete = useCallback((habit) => {
-    setHabits((habits = habits.filter((item) => item.id !== habit.id)))
-  })
+    setHabits((habits) => habits.filter((item) => item.id !== habit.id))
+  }, [])
 
   const handleAdd = useCallback((name) => {
     setHabits((habits = [...habits, { id: Date.now(), name, count: 0 }]))
-  })
+  }, [])
 
   const handleReset = useCallback(() => {
-    setHabits(
-      (habits = habits.map((habit) => {
+    setHabits((habits) =>
+      habits.map((habit) => {
         if (habit.count !== 0) {
           return { ...habit, count: 0 }
         }
         return habit
-      })),
+      }),
     )
-  })
+  }, [])
 
   return (
     <>
