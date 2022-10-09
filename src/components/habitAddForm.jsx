@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-const HabitAddForm = memo((onAdd) => {
+const HabitAddForm = memo(({ onAdd }) => {
   const formRef = React.createRef()
   const inputRef = React.createRef()
 
