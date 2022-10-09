@@ -1,14 +1,13 @@
 import React, { memo } from 'react'
 
-const HabitAddForm = memo((props) => {
+const HabitAddForm = memo((onAdd) => {
   const formRef = React.createRef()
   const inputRef = React.createRef()
 
   const onSubmit = (e) => {
     e.preventDefault()
     const name = inputRef.current.value
-    name && props.onAdd(name)
-    // this.inputRef.current.value = ''
+    name && onAdd(name)
     formRef.current.reset()
   }
 
