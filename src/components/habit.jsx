@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react'
 
-const Habit = memo(({ habit, name, count }) => {
+const Habit = memo(({ habit, onIncrement, onDecrement, onDelete }) => {
   const handleIncrement = () => {
     onIncrement(habit)
   }
@@ -15,8 +15,8 @@ const Habit = memo(({ habit, name, count }) => {
 
   return (
     <li className="habit">
-      <span className="habit-name">{name}</span>
-      <span className="habit-count">{count}</span>
+      <span className="habit-name">{habit.name}</span>
+      <span className="habit-count">{habit.count}</span>
       <button className="habit-button habit-increase" onClick={handleIncrement}>
         <i className="fa-solid fa-square-plus"></i>
       </button>
